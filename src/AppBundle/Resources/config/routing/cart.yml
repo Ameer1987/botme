@@ -1,0 +1,4 @@
+add_product:
+    path:     /add_product/{product_id}/{type_id}
+    defaults: { _controller: "AppBundle:Cart:addProduct" }
+    methods:  POST

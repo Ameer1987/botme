@@ -1,0 +1,17 @@
+AppBundle\Entity\Order:
+    type: entity
+    table: order
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        carts:
+            targetEntity: Cart
+            mappedBy: order
+            orphanRemoval: true
+            cascade: ["persist","remove"]
+        
+

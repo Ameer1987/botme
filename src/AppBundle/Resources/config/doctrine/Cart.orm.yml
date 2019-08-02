@@ -1,0 +1,26 @@
+AppBundle\Entity\Cart:
+    type: entity
+    table: cart
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        items:
+            targetEntity: Item
+            mappedBy: cart
+            orphanRemoval: true
+            cascade: ["persist","remove"]
+    manyToOne:
+        type:
+            targetEntity: CartType
+            inversedBy: carts
+            joinColumn:
+                onDelete: CASCADE
+                name: type_id
+                referencedColumnName: id
+                nullable: false
+        
+

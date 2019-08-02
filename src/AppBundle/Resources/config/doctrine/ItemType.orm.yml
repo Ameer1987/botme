@@ -1,0 +1,17 @@
+AppBundle\Entity\ItemType:
+    type: entity
+    table: item_type
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        items:
+            targetEntity: Item
+            mappedBy: type
+            orphanRemoval: true
+            cascade: ["persist","remove"]
+
+

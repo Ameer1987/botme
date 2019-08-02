@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-class Product
+class CartType
 {
 
     /**
@@ -13,9 +13,9 @@ class Product
     private $id;
 
     /**
-     * @var string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $code;
+    private $carts;
 
     /**
      * @var \DateTime
@@ -27,6 +27,13 @@ class Product
      */
     private $updated_at;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->carts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -39,27 +46,37 @@ class Product
     }
 
     /**
-     * Set code
+     * Add cart
      *
-     * @param string $code
+     * @param \AppBundle\Entity\Cart $cart
      *
-     * @return Product
+     * @return CartType
      */
-    public function setCode($code)
+    public function addCart(\AppBundle\Entity\Cart $cart)
     {
-        $this->code = $code;
+        $this->carts[] = $cart;
 
         return $this;
     }
 
     /**
-     * Get code
+     * Remove cart
      *
-     * @return string
+     * @param \AppBundle\Entity\Cart $cart
      */
-    public function getCode()
+    public function removeCart(\AppBundle\Entity\Cart $cart)
     {
-        return $this->code;
+        $this->carts->removeElement($cart);
+    }
+
+    /**
+     * Get carts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCarts()
+    {
+        return $this->carts;
     }
 
     /**
@@ -126,52 +143,5 @@ class Product
     public function onPreUpdate()
     {
         $this->updated_at = new \DateTime("now");
-    }
-    
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $items;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add item
-     *
-     * @param \AppBundle\Entity\Item $item
-     *
-     * @return Product
-     */
-    public function addItem(\AppBundle\Entity\Item $item)
-    {
-        $this->items[] = $item;
-
-        return $this;
-    }
-
-    /**
-     * Remove item
-     *
-     * @param \AppBundle\Entity\Item $item
-     */
-    public function removeItem(\AppBundle\Entity\Item $item)
-    {
-        $this->items->removeElement($item);
-    }
-
-    /**
-     * Get items
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getItems()
-    {
-        return $this->items;
     }
 }

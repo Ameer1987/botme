@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-class Product
+class Item
 {
 
     /**
@@ -13,9 +13,19 @@ class Product
     private $id;
 
     /**
-     * @var string
+     * @var \AppBundle\Entity\Product
      */
-    private $code;
+    private $product;
+
+    /**
+     * @var \AppBundle\Entity\Cart
+     */
+    private $cart;
+
+    /**
+     * @var \AppBundle\Entity\ItemType
+     */
+    private $type;
 
     /**
      * @var \DateTime
@@ -26,7 +36,6 @@ class Product
      * @var \DateTime
      */
     private $updated_at;
-
 
     /**
      * Get id
@@ -39,27 +48,75 @@ class Product
     }
 
     /**
-     * Set code
+     * Set product
      *
-     * @param string $code
+     * @param \AppBundle\Entity\Product $product
      *
-     * @return Product
+     * @return Item
      */
-    public function setCode($code)
+    public function setProduct(\AppBundle\Entity\Product $product)
     {
-        $this->code = $code;
+        $this->product = $product;
 
         return $this;
     }
 
     /**
-     * Get code
+     * Get product
      *
-     * @return string
+     * @return \AppBundle\Entity\Product
      */
-    public function getCode()
+    public function getProduct()
     {
-        return $this->code;
+        return $this->product;
+    }
+
+    /**
+     * Set cart
+     *
+     * @param \AppBundle\Entity\Cart $cart
+     *
+     * @return Item
+     */
+    public function setCart(\AppBundle\Entity\Cart $cart)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
+     * Get cart
+     *
+     * @return \AppBundle\Entity\Cart
+     */
+    public function getCart()
+    {
+        return $this->cart;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \AppBundle\Entity\ItemType $type
+     *
+     * @return Item
+     */
+    public function setType(\AppBundle\Entity\ItemType $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \AppBundle\Entity\ItemType
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -126,52 +183,5 @@ class Product
     public function onPreUpdate()
     {
         $this->updated_at = new \DateTime("now");
-    }
-    
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $items;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add item
-     *
-     * @param \AppBundle\Entity\Item $item
-     *
-     * @return Product
-     */
-    public function addItem(\AppBundle\Entity\Item $item)
-    {
-        $this->items[] = $item;
-
-        return $this;
-    }
-
-    /**
-     * Remove item
-     *
-     * @param \AppBundle\Entity\Item $item
-     */
-    public function removeItem(\AppBundle\Entity\Item $item)
-    {
-        $this->items->removeElement($item);
-    }
-
-    /**
-     * Get items
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getItems()
-    {
-        return $this->items;
     }
 }

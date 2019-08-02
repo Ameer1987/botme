@@ -1,0 +1,36 @@
+AppBundle\Entity\Item:
+    type: entity
+    table: item
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        product:
+            targetEntity: Product
+            inversedBy: items
+            joinColumn:
+                onDelete: CASCADE
+                name: product_id
+                referencedColumnName: id
+                nullable: false
+        cart:
+            targetEntity: Cart
+            inversedBy: items
+            joinColumn:
+                onDelete: CASCADE
+                name: cart_id
+                referencedColumnName: id
+                nullable: false
+        type:
+            targetEntity: ItemType
+            inversedBy: items
+            joinColumn:
+                onDelete: CASCADE
+                name: type_id
+                referencedColumnName: id
+                nullable: false
+
+

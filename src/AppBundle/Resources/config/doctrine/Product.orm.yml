@@ -17,3 +17,9 @@ AppBundle\Entity\Product:
         updated_at:
             type: datetime
             nullable: true
+    oneToMany:
+        items:
+            targetEntity: Item
+            mappedBy: product
+            orphanRemoval: true
+            cascade: ["persist","remove"]

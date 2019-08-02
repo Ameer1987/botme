@@ -7,6 +7,13 @@ AppBundle\Entity\Item:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        created_at:
+            type: datetime
+            nullable: true
+        updated_at:
+            type: datetime
+            nullable: true
     manyToOne:
         product:
             targetEntity: Product
@@ -32,5 +39,7 @@ AppBundle\Entity\Item:
                 name: type_id
                 referencedColumnName: id
                 nullable: false
-
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]
 

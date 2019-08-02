@@ -3,16 +3,16 @@
 {% block body %}
     <h1>Carttypes list</h1>
 
-    <table>
+    <table style="width: 100%;">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>Actions</th>
-            </tr>
+        <tr style="text-align: left;">
+            <th>Id</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Created_at</th>
+            <th>Updated_at</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for cartType in cartTypes %}

@@ -26,6 +26,15 @@ AppBundle\Entity\Product:
             mappedBy: product
             orphanRemoval: true
             cascade: ["persist","remove"]
+    manyToOne:
+        type:
+            targetEntity: ProductType
+            inversedBy: products
+            joinColumn:
+                onDelete: CASCADE
+                name: type_id
+                referencedColumnName: id
+                nullable: false
     lifecycleCallbacks:
         prePersist: [onPrePersist]
         preUpdate: [onPreUpdate]

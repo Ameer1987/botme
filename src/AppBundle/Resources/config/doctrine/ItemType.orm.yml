@@ -7,11 +7,21 @@ AppBundle\Entity\ItemType:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        created_at:
+            type: datetime
+            nullable: true
+        updated_at:
+            type: datetime
+            nullable: true
     oneToMany:
         items:
             targetEntity: Item
             mappedBy: type
             orphanRemoval: true
             cascade: ["persist","remove"]
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]
 
 

@@ -3,21 +3,22 @@
 {% block body %}
     <h1>Producttypes list</h1>
 
-    <table>
+    <table style="width: 100%;">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>Actions</th>
-            </tr>
+        <tr style="text-align: left;">
+            <th>Id</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Created_at</th>
+            <th>Updated_at</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for productType in productTypes %}
             <tr>
-                <td><a href="{{ path('admin_producttype_show', { 'id': productType.id }) }}">{{ productType.id }}</a></td>
+                <td><a href="{{ path('admin_producttype_show', { 'id': productType.id }) }}">{{ productType.id }}</a>
+                </td>
                 <td>{{ productType.code }}</td>
                 <td>{{ productType.name }}</td>
                 <td>{% if productType.createdat %}{{ productType.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Producttypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for productType in productTypes %}
+            <tr>
+                <td><a href="{{ path('admin_producttype_show', { 'id': productType.id }) }}">{{ productType.id }}</a></td>
+                <td>{{ productType.code }}</td>
+                <td>{{ productType.name }}</td>
+                <td>{% if productType.createdat %}{{ productType.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if productType.updatedat %}{{ productType.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_producttype_show', { 'id': productType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_producttype_edit', { 'id': productType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_producttype_new') }}">Create a new productType</a>
+        </li>
+    </ul>
+{% endblock %}

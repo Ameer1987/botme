@@ -1,4 +1,4 @@
-AppBundle\Entity\ItemType:
+AppBundle\Entity\ProductType:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
               fields: [code]

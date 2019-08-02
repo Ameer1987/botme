@@ -117,6 +117,7 @@ class Product
     public function onPrePersist()
     {
         $this->created_at = new \DateTime("now");
+        $this->updated_at = new \DateTime("now");
     }
 
     /**
@@ -127,7 +128,7 @@ class Product
     {
         $this->updated_at = new \DateTime("now");
     }
-    
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */

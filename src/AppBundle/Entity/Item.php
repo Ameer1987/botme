@@ -23,11 +23,6 @@ class Item
     private $cart;
 
     /**
-     * @var \AppBundle\Entity\ItemType
-     */
-    private $type;
-
-    /**
      * @var \DateTime
      */
     private $created_at;
@@ -93,30 +88,6 @@ class Item
     public function getCart()
     {
         return $this->cart;
-    }
-
-    /**
-     * Set type
-     *
-     * @param \AppBundle\Entity\ItemType $type
-     *
-     * @return Item
-     */
-    public function setType(\AppBundle\Entity\ItemType $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return \AppBundle\Entity\ItemType
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**

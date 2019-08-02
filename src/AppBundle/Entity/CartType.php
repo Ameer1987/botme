@@ -143,6 +143,7 @@ class CartType
     {
         $this->updated_at = new \DateTime("now");
     }
+
     /**
      * @var string
      */
@@ -200,5 +201,10 @@ class CartType
     public function getName()
     {
         return $this->name;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

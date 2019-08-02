@@ -16,9 +16,9 @@ app_admin_carttype:
     resource: "@AppBundle/Resources/config/routing/carttype.yml"
     prefix:   /admin/carttype
 
-app_admin_itemtype:
-    resource: "@AppBundle/Resources/config/routing/itemtype.yml"
-    prefix:   /admin/itemtype
+app_admin_producttype:
+    resource: "@AppBundle/Resources/config/routing/producttype.yml"
+    prefix:   /admin/producttype
 
 app_cart:
     resource: "@AppBundle/Resources/config/routing/cart.yml"

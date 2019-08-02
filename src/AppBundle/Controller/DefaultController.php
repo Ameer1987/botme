@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller
 {
@@ -17,9 +16,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $products = $em->getRepository('AppBundle:Product')->findAll();
+        $cartTypes = $em->getRepository('AppBundle:CartType')->findAll();
 
         return $this->render('default/index.html.twig', [
             'products' => $products,
+            'cartTypes' => $cartTypes,
         ]);
     }
 }

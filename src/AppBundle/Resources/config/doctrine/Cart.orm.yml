@@ -7,6 +7,13 @@ AppBundle\Entity\Cart:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        created_at:
+            type: datetime
+            nullable: true
+        updated_at:
+            type: datetime
+            nullable: true
     oneToMany:
         items:
             targetEntity: Item
@@ -22,5 +29,8 @@ AppBundle\Entity\Cart:
                 name: type_id
                 referencedColumnName: id
                 nullable: false
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]
         
 

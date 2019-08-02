@@ -8,6 +8,9 @@ AppBundle\Entity\Cart:
             generator:
                 strategy: AUTO
     fields:
+        state:
+            type: string
+            length: 40
         created_at:
             type: datetime
             nullable: true

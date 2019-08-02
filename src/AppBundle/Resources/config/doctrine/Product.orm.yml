@@ -11,6 +11,9 @@ AppBundle\Entity\Product:
         code:
             type: string
             length: 40
+        name:
+            type: string
+            length: 255
         created_at:
             type: datetime
             nullable: true

@@ -5,3 +5,7 @@ app_admin_product:
 app_admin_carttype:
     resource: "@AppBundle/Resources/config/routing/carttype.yml"
     prefix:   /admin/carttype
+
+app_admin_itemtype:
+    resource: "@AppBundle/Resources/config/routing/itemtype.yml"
+    prefix:   /admin/itemtype

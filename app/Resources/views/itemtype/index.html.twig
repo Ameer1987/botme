@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Itemtypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for itemType in itemTypes %}
+            <tr>
+                <td><a href="{{ path('admin_itemtype_show', { 'id': itemType.id }) }}">{{ itemType.id }}</a></td>
+                <td>{{ itemType.code }}</td>
+                <td>{{ itemType.name }}</td>
+                <td>{% if itemType.createdat %}{{ itemType.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if itemType.updatedat %}{{ itemType.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_itemtype_show', { 'id': itemType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_itemtype_edit', { 'id': itemType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_itemtype_new') }}">Create a new itemType</a>
+        </li>
+    </ul>
+{% endblock %}

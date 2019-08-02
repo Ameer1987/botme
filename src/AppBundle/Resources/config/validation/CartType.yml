@@ -1,0 +1,5 @@
+AppBundle\Entity\CartType:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+              fields: [code]
+              message: The product code already exists.

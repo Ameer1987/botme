@@ -23,3 +23,6 @@ AppBundle\Entity\Product:
             mappedBy: product
             orphanRemoval: true
             cascade: ["persist","remove"]
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]

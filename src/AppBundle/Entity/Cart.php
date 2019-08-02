@@ -174,4 +174,33 @@ class Cart
     {
         $this->updated_at = new \DateTime("now");
     }
+    /**
+     * @var string
+     */
+    private $state;
+
+
+    /**
+     * Set state
+     *
+     * @param string $state
+     *
+     * @return Cart
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
 }

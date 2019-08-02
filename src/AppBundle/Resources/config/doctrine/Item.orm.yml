@@ -31,14 +31,6 @@ AppBundle\Entity\Item:
                 name: cart_id
                 referencedColumnName: id
                 nullable: false
-        type:
-            targetEntity: ItemType
-            inversedBy: items
-            joinColumn:
-                onDelete: CASCADE
-                name: type_id
-                referencedColumnName: id
-                nullable: false
     lifecycleCallbacks:
         prePersist: [onPrePersist]
         preUpdate: [onPreUpdate]

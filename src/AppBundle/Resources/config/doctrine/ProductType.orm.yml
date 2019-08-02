@@ -1,6 +1,6 @@
-AppBundle\Entity\ItemType:
+AppBundle\Entity\ProductType:
     type: entity
-    table: item_type
+    table: product_type
     id:
         id:
             type: integer
@@ -21,8 +21,8 @@ AppBundle\Entity\ItemType:
             type: datetime
             nullable: true
     oneToMany:
-        items:
-            targetEntity: Item
+        products:
+            targetEntity: Product
             mappedBy: type
             orphanRemoval: true
             cascade: ["persist","remove"]

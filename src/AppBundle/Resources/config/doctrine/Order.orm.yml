@@ -7,11 +7,21 @@ AppBundle\Entity\Order:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        created_at:
+            type: datetime
+            nullable: true
+        updated_at:
+            type: datetime
+            nullable: true
     oneToMany:
         carts:
             targetEntity: Cart
             mappedBy: order
             orphanRemoval: true
             cascade: ["persist","remove"]
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]
         
 

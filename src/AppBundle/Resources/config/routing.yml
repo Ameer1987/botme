@@ -19,3 +19,7 @@ app_admin_carttype:
 app_admin_itemtype:
     resource: "@AppBundle/Resources/config/routing/itemtype.yml"
     prefix:   /admin/itemtype
+
+app_cart:
+    resource: "@AppBundle/Resources/config/routing/cart.yml"
+    prefix:   /cart

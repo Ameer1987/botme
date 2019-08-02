@@ -201,4 +201,9 @@ class ProductType
     {
         $this->updated_at = new \DateTime("now");
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

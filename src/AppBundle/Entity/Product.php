@@ -175,6 +175,7 @@ class Product
     {
         return $this->items;
     }
+
     /**
      * @var string
      */
@@ -203,5 +204,35 @@ class Product
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @var \AppBundle\Entity\ProductType
+     */
+    private $type;
+
+
+    /**
+     * Set type
+     *
+     * @param \AppBundle\Entity\ProductType $type
+     *
+     * @return Product
+     */
+    public function setType(\AppBundle\Entity\ProductType $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \AppBundle\Entity\ProductType
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

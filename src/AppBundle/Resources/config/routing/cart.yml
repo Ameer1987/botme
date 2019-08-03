@@ -1,7 +1,7 @@
 add_cart_product:
   path: /add_product/{product_id}/{type_id}
   defaults: { _controller: "AppBundle:Cart:addProduct" }
-  methods:  GET
+  methods:  POST
 
 cart_view_by_type:
   path: /view_by_type/{id}

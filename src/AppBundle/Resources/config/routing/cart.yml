@@ -1,4 +1,24 @@
-add_product:
-    path:     /add_product/{product_id}/{type_id}
-    defaults: { _controller: "AppBundle:Cart:addProduct" }
-    methods:  POST
+add_cart_product:
+  path: /add_product/{product_id}/{type_id}
+  defaults: { _controller: "AppBundle:Cart:addProduct" }
+  methods:  GET
+
+cart_view_by_type:
+  path: /view_by_type/{id}
+  defaults: { _controller: "AppBundle:Cart:viewByType" }
+  methods:  GET
+
+cart_delete_item:
+  path: /delete_item/{id}
+  defaults: { _controller: "AppBundle:Cart:deleteItem" }
+  methods:  GET
+
+cart_clear:
+  path: /clear/{id}
+  defaults: { _controller: "AppBundle:Cart:clear" }
+  methods:   GET
+
+cart_edit_items:
+  path: /edit_items/{id}
+  defaults: { _controller: "AppBundle:Cart:editItems" }
+  methods:   [GET, POST]

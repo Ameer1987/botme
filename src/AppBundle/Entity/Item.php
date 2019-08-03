@@ -156,6 +156,7 @@ class Item
     {
         $this->updated_at = new \DateTime("now");
     }
+
     /**
      * @var integer
      */
@@ -184,5 +185,21 @@ class Item
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * virtual property to be used in the ItemType form
+     */
+    public function getProductName()
+    {
+        return (string)$this->getProduct();
+    }
+
+    /**
+     * virtual property to be used in the ItemType form
+     */
+    public function setProductName()
+    {
+        return $this;
     }
 }

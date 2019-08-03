@@ -34,7 +34,11 @@
         </div>
     {% endif %}
     {% for cartType in cartTypes %}
-        <a href="{{ path('cart_view_by_type', {'id': cartType.id}) }}">View {{ cartType }}</a>
-        <br/>
+        <a href="{{ path('cart_view_by_type', {'id': cartType.id}) }}" style="padding: 0.75em;">
+            <button class="btn btn-primary">
+                View {{ cartType }} cart
+            </button>
+        </a>
+        &nbsp;&nbsp;
     {% endfor %}
 {% endblock %}

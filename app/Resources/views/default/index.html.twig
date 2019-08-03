@@ -9,12 +9,13 @@
             <tr>
                 {% for product in products %}
                 <td style="width: 25%;">
-                    {{ product.name }}
-                    <br/>
+                    <h4>{{ product.name }}</h4>
                     {% for cartType in cartTypes %}
                         <a class="add-to-cart" href="javascript:void(0)"
                            data-url="{{ path('add_cart_product', {'product_id': product.id, 'type_id': cartType.id}) }}">
-                            Add to {{ cartType }}
+                            <label class="m-0">
+                                Add to {{ cartType }}
+                            </label>
                         </a>
                         <br/>
                     {% endfor %}

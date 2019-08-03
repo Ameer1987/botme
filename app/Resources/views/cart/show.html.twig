@@ -1,9 +1,8 @@
 {% extends 'layout/layout.html.twig' %}
 
 {% block body %}
-    <h1>Cart</h1>
-
     {% if cart and cart.items|length %}
+        <h1>{{ cart.Type }} Cart</h1>
         <table class="table">
             <thead>
             <tr>
@@ -37,6 +36,7 @@
             </li>
         </ul>
     {% else %}
+        <h1>Cart</h1>
         <div>No cart found</div>
         <br/>
     {% endif %}

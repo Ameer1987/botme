@@ -156,4 +156,33 @@ class Item
     {
         $this->updated_at = new \DateTime("now");
     }
+    /**
+     * @var integer
+     */
+    private $quantity;
+
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     *
+     * @return Item
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
 }

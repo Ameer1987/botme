@@ -18,6 +18,10 @@
                 <td>{{ product.name }}</td>
             </tr>
             <tr>
+                <th>Price</th>
+                <td>{{ product.price }}</td>
+            </tr>
+            <tr>
                 <th>Created_at</th>
                 <td>{% if product.createdat %}{{ product.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>

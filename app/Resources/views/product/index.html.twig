@@ -9,6 +9,7 @@
             <th>Id</th>
             <th>Code</th>
             <th>Name</th>
+            <th>Price</th>
             <th>Created_at</th>
             <th>Updated_at</th>
             <th>Actions</th>
@@ -20,6 +21,7 @@
                 <td><a href="{{ path('admin_product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
                 <td>{{ product.code }}</td>
                 <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
                 <td>{% if product.createdat %}{{ product.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if product.updatedat %}{{ product.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>

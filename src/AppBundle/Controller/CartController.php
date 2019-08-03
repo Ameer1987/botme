@@ -37,7 +37,9 @@ class CartController extends Controller
         $item = new Item();
         $item->setCart($cart);
         $item->setProduct($product);
+        $item->setUnitPrice($product->getPrice());
         $item->setQuantity(1);
+        $item->setTotalPrice($product->getPrice());
         $cart->addItem($item);
 
         $em->persist($cart);

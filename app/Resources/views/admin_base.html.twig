@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body class="m-3">
+<div class="row">
+    <div class="col-2" style="border-right: 1px dashed #dee2e6;">
+        <br/>
+        <br/>
+        <br/>
+        {{ knp_menu_render('AppBundle:Builder:mainMenu') }}
+    </div>
+    <div class="col-9">
+        {% block body %}{% endblock %}
+    </div>
+</div>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

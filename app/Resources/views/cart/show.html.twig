@@ -27,17 +27,21 @@
 
             </tbody>
         </table>
+        <br/>
+        <ul>
+            <li>
+                <a href="{{ path('cart_edit_items',{'id': cart.id}) }}">Edit cart</a>
+            </li>
+            <li>
+                <a href="{{ path('cart_clear',{'id': cart.id}) }}">Clear cart</a>
+            </li>
+        </ul>
     {% else %}
         <div>No cart found</div>
+        <br/>
     {% endif %}
 
     <ul>
-        <li>
-            <a href="{{ path('cart_edit_items',{'id': cart.id}) }}">Edit cart</a>
-        </li>
-        <li>
-            <a href="{{ path('cart_clear',{'id': cart.id}) }}">Clear cart</a>
-        </li>
         <li>
             <a href="{{ path('homepage') }}">Back to home</a>
         </li>

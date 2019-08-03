@@ -11,7 +11,8 @@
                 {{ product.name }}
                 <br/>
                 {% for cartType in cartTypes %}
-                    <a href="">Add to {{ cartType }}</a>
+                    <a href="{{ path('add_cart_product', {'product_id': product.id, 'type_id': cartType.id}) }}">Add
+                        to {{ cartType }}</a>
                     <br/>
                 {% endfor %}
                 <br/>
@@ -26,4 +27,8 @@
         </tr>
         </tbody>
     </table>
+    {% for cartType in cartTypes %}
+        <a href="{{ path('cart_view_by_type', {'id': cartType.id}) }}">View {{ cartType }}</a>
+        <br/>
+    {% endfor %}
 {% endblock %}

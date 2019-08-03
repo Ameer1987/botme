@@ -4,7 +4,16 @@
     <h1>Cart edit</h1>
 
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {% for itemForm in form.items %}
+        <div style="width: 100%; float: left;">
+            <div style="float: left;">
+                {{ form_row(itemForm.productName) }}
+            </div>
+            <div style="float: left;">
+                {{ form_row(itemForm.quantity) }}
+            </div>
+        </div>
+    {% endfor %}
     <input type="submit" value="Save"/>
     {{ form_end(form) }}
 

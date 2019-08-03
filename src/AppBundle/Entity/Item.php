@@ -202,16 +202,11 @@ class Item
     {
         return $this;
     }
+
     /**
      * @var string
      */
     private $unit_price;
-
-    /**
-     * @var string
-     */
-    private $total_price;
-
 
     /**
      * Set unitPrice
@@ -237,27 +232,4 @@ class Item
         return $this->unit_price;
     }
 
-    /**
-     * Set totalPrice
-     *
-     * @param string $totalPrice
-     *
-     * @return Item
-     */
-    public function setTotalPrice($totalPrice)
-    {
-        $this->total_price = $totalPrice;
-
-        return $this;
-    }
-
-    /**
-     * Get totalPrice
-     *
-     * @return string
-     */
-    public function getTotalPrice()
-    {
-        return $this->total_price;
-    }
 }

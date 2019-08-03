@@ -7,11 +7,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function adminIndexAction(Request $request)
-    {
-        return $this->render('default/admin_index.html.twig');
-    }
-
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();

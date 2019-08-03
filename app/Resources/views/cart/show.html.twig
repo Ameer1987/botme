@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Cart</h1>
 
-    {% if cart %}
+    {% if cart and cart.items|length %}
         <table class="table">
             <thead>
             <tr>

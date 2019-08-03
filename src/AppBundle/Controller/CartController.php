@@ -60,11 +60,12 @@ class CartController extends Controller
     public function deleteItemAction(Item $item)
     {
         /* @var $em EntityManager */
+        $cart = $item->getCart();
         $em = $this->getDoctrine()->getManager();
         $em->remove($item);
         $em->flush();
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('cart_view_by_type', ['id' => $cart->getType()->getId()]);
     }
 
     public function clearAction(Cart $cart)
@@ -77,7 +78,7 @@ class CartController extends Controller
         }
         $em->flush();
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('cart_view_by_type', ['id' => $cart->getType()->getId()]);
     }
 
     public function editItemsAction(Request $request, Cart $cart)

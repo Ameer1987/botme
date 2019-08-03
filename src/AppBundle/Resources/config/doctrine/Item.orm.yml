@@ -8,6 +8,8 @@ AppBundle\Entity\Item:
             generator:
                 strategy: AUTO
     fields:
+        quantity:
+            type: integer
         created_at:
             type: datetime
             nullable: true

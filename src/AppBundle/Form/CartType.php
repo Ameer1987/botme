@@ -16,6 +16,7 @@ class CartType extends AbstractType
     {
         $builder->add('items', CollectionType::class, [
             'entry_type' => ItemType::class,
+            'label' => false,
         ]);
     }
 

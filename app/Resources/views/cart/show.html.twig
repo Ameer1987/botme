@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cart</h1>
+
+    {% if cart %}
+        <table style="width: 100%;">
+            <thead>
+            <tr style="text-align: left;">
+                <th>Code</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in cart.items %}
+                <tr>
+                    <td>{{ item.product.code }}</td>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><a href="{{ path('cart_delete_item',{'id': item.id}) }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    {% else %}
+        <div>No cart found</div>
+    {% endif %}
+
+    <ul>
+        <li>
+            <a href="{{ path('cart_edit_items',{'id': cart.id}) }}">Edit cart</a>
+        </li>
+        <li>
+            <a href="{{ path('cart_clear',{'id': cart.id}) }}">Clear cart</a>
+        </li>
+        <li>
+            <a href="{{ path('homepage') }}">Back to home</a>
+        </li>
+    </ul>
+{% endblock %}

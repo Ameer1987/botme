@@ -13,9 +13,6 @@ AppBundle\Entity\Item:
             length: 40
         quantity:
             type: integer
-        total_price:
-            type: string
-            length: 40
         created_at:
             type: datetime
             nullable: true

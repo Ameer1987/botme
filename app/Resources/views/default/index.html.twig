@@ -3,30 +3,36 @@
 {% block body %}
     <h1>Choose products</h1>
 
-    <table style="width: 100%;">
-        <tbody>
-        <tr>
-            {% for product in products %}
-            <td style="width: 25%;">
-                {{ product.name }}
-                <br/>
-                {% for cartType in cartTypes %}
-                    <a href="{{ path('add_cart_product', {'product_id': product.id, 'type_id': cartType.id}) }}">Add
-                        to {{ cartType }}</a>
+    {% if products|length > 0 %}
+        <table class="table">
+            <tbody>
+            <tr>
+                {% for product in products %}
+                <td style="width: 25%;">
+                    {{ product.name }}
                     <br/>
-                {% endfor %}
-                <br/>
-                <br/>
-            </td>
+                    {% for cartType in cartTypes %}
+                        <a href="{{ path('add_cart_product', {'product_id': product.id, 'type_id': cartType.id}) }}">Add
+                            to {{ cartType }}</a>
+                        <br/>
+                    {% endfor %}
+                    <br/>
+                    <br/>
+                </td>
 
-            {% if loop.index > 0 and loop.index % 4 == 0 %}
-        </tr>
-        <tr>
-            {% endif %}
-            {% endfor %}
-        </tr>
-        </tbody>
-    </table>
+                {% if loop.index > 0 and loop.index % 4 == 0 %}
+            </tr>
+            <tr>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <div>
+            No products found
+        </div>
+    {% endif %}
     {% for cartType in cartTypes %}
         <a href="{{ path('cart_view_by_type', {'id': cartType.id}) }}">View {{ cartType }}</a>
         <br/>

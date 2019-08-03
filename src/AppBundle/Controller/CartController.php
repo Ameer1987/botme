@@ -7,6 +7,7 @@ use AppBundle\Entity\CartType;
 use AppBundle\Entity\Item;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -44,7 +45,7 @@ class CartController extends Controller
         $em->persist($cart);
         $em->flush();
 
-        return $this->redirectToRoute('homepage');
+        return new JsonResponse("Item added successfully");
     }
 
     public function viewByTypeAction(CartType $type)
